@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Chamook.NotifyMe.CreateNotification"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chamook.NotifyMe"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <StackPanel Grid.Row="0" Margin="24,17,0,28">
+            <TextBlock x:Uid="Header" Text="NOTIFY ME" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock x:Uid="CreateTitle" Text="setup" Margin="0,12,0,0" Style="{ThemeResource GroupHeaderTextBlockStyle}"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="24,17,10,28">
+            <StackPanel>
+                <TextBlock x:Uid="CreateNotificationTitleField" x:Name="TbTitle" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
+                <TextBox x:Name="TxtTitle"></TextBox>
+                <TextBlock x:Uid="CreateNotificationMessageField" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
+                <TextBox x:Name="TxtMessage" Height="100" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                <TextBlock x:Uid="CreateNotificationRecipientField" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
+                
+                <Button x:Name="btnLstRecipient" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <Button.Flyout>
+                        <ListPickerFlyout
+                            ItemsSource="{Binding Recipients}"
+                            SelectionMode="Single"
+                            x:Name ="lpfRecipients"
+                            Closed="LpfRecipients_OnClosed">
+                        </ListPickerFlyout>
+                    </Button.Flyout>
+                </Button>
+                <Button x:Name="BtnAddRecipient" Click="Add_Recipient_OnClick">Add Recipient</Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Add recipient -->
+        <ContentDialog x:Name="cdAddRecipient">
+            <Grid>
+                <StackPanel>
+                    <TextBlock x:Uid="CreateRecipientTitle" Text="create" Margin="0,12,0,0" Style="{ThemeResource GroupHeaderTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateRecipientNameField" x:Name="TbName" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
+                    <TextBox x:Name="TxtName"></TextBox>
+                    <TextBlock x:Uid="CreateRecipientKeyField" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
+                    <TextBox x:Name="TxtKey"></TextBox>
+                    <Button x:Uid="btnSaveRecipient" x:Name="btnSaveRecipient" Click="BtnSaveRecipient_OnClick">Save</Button>
+                </StackPanel>
+                
+            </Grid>
+        </ContentDialog>
+
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="SaveAppBarButton" x:Name="SaveAppBarButton" Icon="Save" Click="SaveAppBarButton_OnClick" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+</Page>

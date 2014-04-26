@@ -1,0 +1,4 @@
+MainPackage=F:\Development\Chamook.NofityMe\Chamook.NotifyMe\bin\Release\Chamook.NotifyMe_1.1.0.4_Bundle\Chamook.NotifyMe_1.1.0.4_AnyCPU.appx
+SymbolPackage=F:\Development\Chamook.NofityMe\Chamook.NotifyMe\AppPackages\Chamook.NotifyMe_1.1.0.4_Test\Chamook.NotifyMe_1.1.0.4_AnyCPU.appxsym
+ResourcePack=F:\Development\Chamook.NofityMe\Chamook.NotifyMe\bin\Release\Chamook.NotifyMe_1.1.0.4_Bundle\Chamook.NotifyMe_1.1.0.4_scale-100.appx
+ResourcePack=F:\Development\Chamook.NofityMe\Chamook.NotifyMe\bin\Release\Chamook.NotifyMe_1.1.0.4_Bundle\Chamook.NotifyMe_1.1.0.4_scale-140.appx
